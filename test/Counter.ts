@@ -5,8 +5,8 @@ const { ethers } = await network.create();
 
 describe("Counter", function () {
   it("Should emit the Increment event when calling the inc() function", async function () {
+    const { ethers } = await network.getOrCreate();
     const counter = await ethers.deployContract("Counter");
-
     await expect(counter.inc()).to.emit(counter, "Increment").withArgs(1n);
   });
 
